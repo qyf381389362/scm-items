@@ -11,7 +11,7 @@ import DesignItems from '../period/design/designItems';
 import DesignItemsVerify from '../period/design/designItemsVerify';
 import CodingItems from '../period/coding/codingItems';
 import CodingItemsVerify from '../period/coding/codingItemsVerify';
-// import style from './period.less';
+import style from './period.less';
 
 import XML from '../../xml/xml';
 
@@ -48,7 +48,7 @@ class Period extends Component {
 
   render () {
     return (
-      <div>
+      <div className={ style.container }>
         <PlanItems showDrawer={ this.showDrawer }/>
         <PlanItemsVerify showDrawer={ this.showDrawer }/>
         <RequireItems showDrawer={ this.showDrawer }/>

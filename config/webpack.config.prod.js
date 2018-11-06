@@ -46,8 +46,10 @@ if (env.stringified['process.env'].NODE_ENV !== '"production"') {
 // style files regexes
 const cssRegex = /\.css$/;
 const cssModuleRegex = /\.module\.css$/;
-const sassRegex = /\.(scss|sass)$/;
-const sassModuleRegex = /\.module\.(scss|sass)$/;
+// const sassRegex = /\.(scss|sass)$/;
+// const sassModuleRegex = /\.module\.(scss|sass)$/;
+const lessRegex = /\.less$/;
+const lessModuleRegex = /\.module\.less$/;
 
 // common function to get style loaders
 const getStyleLoaders = (cssOptions, preProcessor) => {
@@ -241,25 +243,16 @@ module.exports = {
       // Disable require.ensure as it's not a standard language feature.
       { parser: { requireEnsure: false } },
 
-      // {
-      //   test: /\.css$/,
-      //   use: ['style-loader', 'css-loader']
-      // },
       {
         test: /\.less$/,
-        use: [
-          {
-            loader: require.resolve('style-loader') // creates style nodes from JS strings
-          },
-          {
-            loader: require.resolve('css-loader') // translates CSS into CommonJS
-          },
-          {
-            loader: require.resolve('less-loader') // compiles Less to CSS
-          }
-        ]
+        use: [{
+          loader: "style-loader" // creates style nodes from JS strings
+        }, {
+          loader: "css-loader" // translates CSS into CommonJS
+        }, {
+          loader: "less-loader" // compiles Less to CSS
+        }]
       },
-
       // First, run the linter.
       // It's important to do this before Babel processes the JS.
       {
@@ -378,41 +371,55 @@ module.exports = {
               getLocalIdent: getCSSModuleLocalIdent,
             }),
           },
+          // {
+          //   test: lessRegex,
+          //   exclude: lessModuleRegex,
+          //   use: getStyleLoaders({ importLoaders: 3 }, 'less-loader'),
+          // }, {
+          //   test: lessModuleRegex,
+          //   use: getStyleLoaders({
+          //       importLoaders: 3,
+          //       modules: true,
+          //       getLocalIdent: getCSSModuleLocalIdent,
+          //     },
+          //     'less-loader'
+          //   ),
+          // },
           // Opt-in support for SASS. The logic here is somewhat similar
           // as in the CSS routine, except that "sass-loader" runs first
           // to compile SASS files into CSS.
           // By default we support SASS Modules with the
           // extensions .module.scss or .module.sass
-          {
-            test: sassRegex,
-            exclude: sassModuleRegex,
-            loader: getStyleLoaders(
-              {
-                importLoaders: 2,
-                sourceMap: shouldUseSourceMap,
-              },
-              'sass-loader'
-            ),
-            // Don't consider CSS imports dead code even if the
-            // containing package claims to have no side effects.
-            // Remove this when webpack adds a warning or an error for this.
-            // See https://github.com/webpack/webpack/issues/6571
-            sideEffects: true,
-          },
+          // {
+          //   test: lessRegex,
+          //   exclude: lessModuleRegex,
+          //   loader: getStyleLoaders(
+          //     {
+          //       importLoaders: 2,
+          //       sourceMap: shouldUseSourceMap,
+          //     },
+          //     'less-loader'
+          //   ),
+          //   // Don't consider CSS imports dead code even if the
+          //   // containing package claims to have no side effects.
+          //   // Remove this when webpack adds a warning or an error for this.
+          //   // See https://github.com/webpack/webpack/issues/6571
+          //   sideEffects: true,
+          // },
           // Adds support for CSS Modules, but using SASS
           // using the extension .module.scss or .module.sass
-          {
-            test: sassModuleRegex,
-            loader: getStyleLoaders(
-              {
-                importLoaders: 2,
-                sourceMap: shouldUseSourceMap,
-                modules: true,
-                getLocalIdent: getCSSModuleLocalIdent,
-              },
-              'sass-loader'
-            ),
-          },
+          // {
+          //   test: lessModuleRegex,
+          //   loader: getStyleLoaders(
+          //     {
+          //       importLoaders: 2,
+          //       sourceMap: shouldUseSourceMap,
+          //       modules: true,
+          //       getLocalIdent: getCSSModuleLocalIdent,
+          //     },
+          //     'less-loader'
+          //   ),
+          // },
           // "file" loader makes sure assets end up in the `build` folder.
           // When you `import` an asset, you get its filename.
           // This loader doesn't use a "test" so it will catch all modules
