@@ -59,13 +59,19 @@ class Period extends Component {
       axios.post('/api/save', {
         key: this.state.drawerTitle,
         content: drawerContent
-      }).then((res) => {
+      })
+      .then((res) => {
         console.log(res.data);
         notification.success({
           message: '修改成功'
         });
+      })
+      .catch(function (error) {
+        notification.error({
+          message: '修改失败'
+        });
       });
-    }else {
+    } else {
       // alert(`修改 ${this.state.drawerTitle}`);
       // console.log(this.state.drawerContent);
       // notification.error({
