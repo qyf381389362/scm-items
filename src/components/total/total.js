@@ -6,7 +6,7 @@ const columns = [
     title: '软件生命周期配置项',
     dataIndex: 'name',
     key: 'name',
-    render: text => <a href="javascript:;">{ text }</a>,
+    render: text => <a href="#/">{ text }</a>,
   },
   {
     title: '缩写',

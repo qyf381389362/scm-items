@@ -40,6 +40,7 @@ class Period extends Component {
       drawerTitle: record.name,
       isEdit: false
     });
+    this.getInfo(record.name);
   }
 
   onClose () {
@@ -49,40 +50,61 @@ class Period extends Component {
   }
 
   handleSubmit (e) {
+    const propsForm = this.props.form;
     e.preventDefault();
-    let drawerContent = this.props.form.getFieldValue('content');
-    console.log(drawerContent);
+    let drawerContent = propsForm.getFieldValue('content');
+
     if (this.state.isEdit) {
       // 修改内容点击提交时触发
-      // alert(`提交 ${this.state.drawerTitle}`);
-      // console.log(this.state.drawerContent);
-      axios.post('/api/save', {
+      axios.post('/api/update', {
         key: this.state.drawerTitle,
         content: drawerContent
       })
       .then((res) => {
-        console.log(res.data);
         notification.success({
           message: '修改成功'
         });
+
+        this.getInfo(this.state.drawerTitle);
+
+        this.setState({
+          isEdit: !this.state.isEdit
+        });
       })
-      .catch(function (error) {
+      .catch((error) => {
         notification.error({
           message: '修改失败'
         });
       });
     } else {
-      // alert(`修改 ${this.state.drawerTitle}`);
-      // console.log(this.state.drawerContent);
-      // notification.error({
-      //   message: '修改失败'
-      // });
-      axios.get('/api/test').then((res) => {
-        console.log(res.data);
+      this.setState({
+        isEdit: !this.state.isEdit
+      });
+
+      propsForm.setFieldsValue({
+        content: this.state.drawerContent
       });
     }
-    this.setState({
-      isEdit: !this.state.isEdit
+  }
+
+  getInfo (key) {
+    axios.get('/api/info', 
+    {
+      params: {
+        key: key
+      }
+    }
+    )
+    .then((res) => {
+      this.setState({
+        drawerContent: res.data.content
+      });
+      // console.log(res.data.content);
+    })
+    .catch((err) => {
+        notification.error({
+          message: '获取配置项信息失败'
+        });
     });
   }
 
@@ -129,6 +151,7 @@ class Period extends Component {
               : (
                 <FormItem>
                   <pre><code className="xml">
+                    {/* { this.state.drawerContent } */}
                     { XML[this.state.drawerTitle] }
                   </code></pre>
                 </FormItem>

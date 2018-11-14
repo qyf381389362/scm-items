@@ -12,7 +12,7 @@ class CodingItems extends Component {
         title: '软件生命周期配置项',
         dataIndex: 'name',
         key: 'name',
-        render: (text, record) => <a href="javascript:;" onClick={ this.clickTableCell.bind(this, record) }>{ text }</a>
+        render: (text, record) => <a href="#/" onClick={ this.clickTableCell.bind(this, record) }>{ text }</a>
       },
       {
         title: '缩写',

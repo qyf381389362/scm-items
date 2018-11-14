@@ -481,24 +481,6 @@ const XML = {
     </Chapter>
   </SoftwareCodingStandards>`,
 
-  '软件架构': `
-  <LLR ID="SA_001" Name="Pressure caculate">
-    <CoverHLR>
-      <HLR ID=" " Name=" "/>
-    </CoverHLR>
-    <Inputs>
-    </Inputs>
-    <Outputs>
-    </Outputs>
-    <Robustness>
-    </Robustness>
-    <Methods>
-      <Formula ID="" Name="f:/file.doc"/>
-      <AlgorithmModel>
-      </AlgorithmModel>
-    </Methods>
-  </LLR>`,
-
   '源代码': `
   <SoftwareCodingProcess>
     <DocumentOverview>
