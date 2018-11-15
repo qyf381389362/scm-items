@@ -155,8 +155,8 @@ class Period extends Component {
               : (
                 <FormItem>
                   <pre><code className="xml">
-                    {/* { this.state.drawerContent } */}
-                    { XML[this.state.drawerTitle] }
+                    { this.state.drawerContent }
+                    {/* { XML[this.state.drawerTitle] } */}
                   </code></pre>
                 </FormItem>
               )
