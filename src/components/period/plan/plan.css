@@ -1,0 +1,10 @@
+.spanStyle {
+  color: #1890ff;
+  background-color: transparent;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.spanStyle:hover {
+  color: #40a9ff;
+}

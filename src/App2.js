@@ -55,7 +55,7 @@ class App2 extends Component {
             Learn React
           </a>
         </header>
-        <pre><code class="xml">
+        <pre><code className="xml">
           &lt;html&gt;&lt;/html&gt;
         </code></pre>
         <Table 

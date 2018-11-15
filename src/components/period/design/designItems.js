@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Card, Table } from 'antd';
+import './designItems.css';
 
 class DesignItems extends Component {
   constructor(props) {
@@ -12,7 +13,7 @@ class DesignItems extends Component {
         title: '软件生命周期配置项',
         dataIndex: 'name',
         key: 'name',
-        render: (text, record) => <a href="#/" onClick={ this.clickTableCell.bind(this, record) }>{ text }</a>
+        render: (text, record) => <span className="spanStyle" onClick = { this.clickTableCell.bind(this, record) }>{text}</span>
       },
       {
         title: '缩写',

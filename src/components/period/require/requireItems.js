@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Card, Table } from 'antd';
 import 'highlight.js/styles/atom-one-dark-reasonable.css';
+import './requireItems.css';
 
 class RequireItems extends Component {
   constructor(props) {
@@ -13,7 +14,7 @@ class RequireItems extends Component {
         title: '软件生命周期配置项',
         dataIndex: 'name',
         key: 'name',
-        render: (text, record) => <a href="#/" onClick={ this.clickTableCell.bind(this, record) }>{ text }</a>
+        render: (text, record) => <span className="spanStyle" onClick = { this.clickTableCell.bind(this, record) }>{text}</span>
       },
       {
         title: '缩写',
