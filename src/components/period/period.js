@@ -16,7 +16,7 @@ import IntegratedItems from '../period/integrated/integratedItems';
 import IntegratedItemsVerify from '../period/integrated/integratedItemsVerify';
 import './period.css';
 
-import XML from '../../xml/xml';
+// import XML from '../../xml/xml';
 
 const FormItem = Form.Item;
 const { TextArea } = Input;
