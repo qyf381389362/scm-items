@@ -81,7 +81,7 @@ class CodingItems extends Component {
     return (
       <div>
         <Card
-          title="软件编码过程配置项"
+          title={ <span id="codingItems">软件编码过程配置项</span> }
           style={{ marginTop: 20 }}
         >
           <Table

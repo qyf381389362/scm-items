@@ -111,7 +111,7 @@ class PlanItemsVerify extends Component {
     return (
       <div>
         <Card
-          title="软件计划过程验证与审定配置项"
+          title={ <span id="planItemsVerify">软件计划过程验证与审定配置项</span> }
           style={{ marginTop: 20 }}
         >
           <Table

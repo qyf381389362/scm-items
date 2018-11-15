@@ -99,7 +99,7 @@ class PlanItems extends Component {
     return (
       <div>
         <Card
-          title="软件计划过程配置项"
+          title={ <span id="planItems">软件计划过程配置项</span> }
           style={{ marginTop: 20 }}
         >
           <Table

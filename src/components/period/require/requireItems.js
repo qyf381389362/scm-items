@@ -87,7 +87,7 @@ class RequireItems extends Component {
     return (
       <div>
         <Card
-          title="软件需求过程配置项"
+          title={ <span id="requireItems">软件需求过程配置项</span> }
           style={{ marginTop: 20 }}
         >
           <Table

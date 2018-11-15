@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Card, Table } from 'antd';
-import './designItems.css';
+import './integrated.css';
 
-class DesignItems extends Component {
+class IntegratedItems extends Component {
   constructor(props) {
     super(props);
 
@@ -48,32 +48,38 @@ class DesignItems extends Component {
       },
       {
         key: '5',
-        name: '软件设计标准',
-        abbr: 'SDS',
-        chapter: '11.7'
-      },
-      {
-        key: '6',
-        name: '软件高层需求结构',
-        abbr: '',
-        chapter: ''
-      },
-      {
-        key: '7',
-        name: '软件高层需求(条目)',
-        abbr: '',
-        chapter: ''
-      },
-      {
-        key: '8',
         name: '软件架构',
         abbr: '',
         chapter: ''
       },
       {
+        key: '6',
+        name: '源代码',
+        abbr: 'SC',
+        chapter: '11.11'
+      },
+      {
+        key: '7',
+        name: '目标代码',
+        abbr: '',
+        chapter: ''
+      },
+      {
+        key: '8',
+        name: '可执行目标码',
+        abbr: '',
+        chapter: ''
+      },
+      {
         key: '9',
-        name: '低层需求',
-        abbr: 'LLR',
+        name: '加载控制记录',
+        abbr: '',
+        chapter: ''
+      },
+      {
+        key: '10',
+        name: '编译、链接、加载日志',
+        abbr: '',
         chapter: ''
       }
     ];
@@ -87,7 +93,7 @@ class DesignItems extends Component {
     return (
       <div>
         <Card
-          title={ <span id="designItems">软件设计过程配置项</span> }
+          title={ <span id="integratedItems">软件集成过程配置项</span> }
           style={{ marginTop: 20 }}
         >
           <Table
@@ -101,4 +107,4 @@ class DesignItems extends Component {
   }
 }
 
-export default DesignItems;
+export default IntegratedItems;

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Card, Table } from 'antd';
-import './requireItems.css';
+import './integrated.css';
 
-class RequireItemsVerify extends Component {
+class IntegratedItemsVerify extends Component {
   constructor(props) {
     super(props);
 
@@ -77,19 +77,19 @@ class RequireItemsVerify extends Component {
       },
       {
         key: '9',
-        name: '高层需求与系统需求追踪数据',
+        name: '可执行目标代码与源代码追踪数据',
         abbr: 'TD',
         chapter: '11.21'
       },
       {
         key: '10',
-        name: '高层需求到系统需求的符合性验证',
+        name: '可执行目标代码到源代码的符合性验证',
         abbr: '',
         chapter: ''
       },
       {
         key: '11',
-        name: '高层需求核查记录',
+        name: '集成核查记录',
         abbr: '',
         chapter: ''
       },
@@ -107,7 +107,7 @@ class RequireItemsVerify extends Component {
       },
       {
         key: '14',
-        name: '高层需求评审报告',
+        name: '集成评审报告',
         abbr: '',
         chapter: ''
       },
@@ -149,7 +149,7 @@ class RequireItemsVerify extends Component {
       },
       {
         key: '21',
-        name: '软件高层需求基线',
+        name: '集成基线',
         abbr: '',
         chapter: ''
       }
@@ -164,7 +164,7 @@ class RequireItemsVerify extends Component {
     return (
       <div>
         <Card
-          title={ <span id="requireItemsVerify">软件需求过程验证与审定配置项</span> }
+          title={ <span id="integratedItemsVerify">软件集成过程验证与审定配置项</span> }
           style={{ marginTop: 20 }}
         >
           <Table
@@ -178,4 +178,4 @@ class RequireItemsVerify extends Component {
   }
 }
 
-export default RequireItemsVerify;
+export default IntegratedItemsVerify;

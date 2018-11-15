@@ -182,7 +182,7 @@ class CodingItemsVerify extends Component {
     return (
       <div>
         <Card
-          title="软件编码过程验证与审定配置项"
+          title={ <span id="codingItemsVerify">软件编码过程验证与审定配置项</span> }
           style={{ marginTop: 20 }}
         >
           <Table

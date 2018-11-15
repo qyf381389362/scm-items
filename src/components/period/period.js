@@ -12,6 +12,8 @@ import DesignItems from '../period/design/designItems';
 import DesignItemsVerify from '../period/design/designItemsVerify';
 import CodingItems from '../period/coding/codingItems';
 import CodingItemsVerify from '../period/coding/codingItemsVerify';
+import IntegratedItems from '../period/integrated/integratedItems';
+import IntegratedItemsVerify from '../period/integrated/integratedItemsVerify';
 import './period.css';
 
 import XML from '../../xml/xml';
@@ -125,6 +127,8 @@ class Period extends Component {
         <DesignItemsVerify showDrawer={ this.showDrawer }/>
         <CodingItems showDrawer={ this.showDrawer }/>
         <CodingItemsVerify showDrawer={this.showDrawer }/>
+        <IntegratedItems showDrawer={this.showDrawer }/>
+        <IntegratedItemsVerify showDrawer={this.showDrawer }/>
 
         <Drawer
           title={ `${this.state.drawerTitle}内容` }
