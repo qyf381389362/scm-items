@@ -1,6 +1,12 @@
 /* .container {
   background-color: red;
 } */
+.fixed {
+  overflow: hidden;
+  position: relative;
+  width: calc(100% - 17px);
+}
+
 .mt20 {
   margin-top: 20px;
 }

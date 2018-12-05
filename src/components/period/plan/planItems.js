@@ -14,7 +14,7 @@ class PlanItems extends Component {
         title: '软件生命周期配置项',
         dataIndex: 'name',
         key: 'name',
-        render: (text, record) => <span className="spanStyle" onClick = { this.clickTableCell.bind(this, record) }>{text}</span>
+        render: (text, record) => <span className="spanStyle" onClick = { this.clickTableCell.bind(this, record) }>{ text }</span>
       },
       {
         title: '缩写',

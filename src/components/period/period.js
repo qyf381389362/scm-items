@@ -14,6 +14,8 @@ import CodingItems from '../period/coding/codingItems';
 import CodingItemsVerify from '../period/coding/codingItemsVerify';
 import IntegratedItems from '../period/integrated/integratedItems';
 import IntegratedItemsVerify from '../period/integrated/integratedItemsVerify';
+import CodeDrawer from '../codeDrawer/codeDrawer';
+
 import './period.css';
 
 // import XML from '../../xml/xml';
@@ -32,17 +34,26 @@ class Period extends Component {
     }
 
     this.showDrawer = this.showDrawer.bind(this);
+    this.checkMask = this.checkMask.bind(this);
     this.onClose = this.onClose.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   showDrawer (record) {
+    document.getElementsByTagName("body")[0].className = "fixed";
     this.setState({
       visible: true,
       drawerTitle: record.name,
       isEdit: false
     });
     this.getInfo(record.name);
+  }
+
+  checkMask () {
+    document.getElementsByTagName("body")[0].className = "";
+    this.setState({
+      visible: false
+    });
   }
 
   onClose () {
@@ -118,7 +129,15 @@ class Period extends Component {
   render () {
     const { getFieldDecorator } = this.props.form;
     return (
-      <div className="container">
+      <div>
+        {/* <CodeDrawer
+          visible={ this.state.visible }
+          checkMask={ this.checkMask }
+          title={ this.state.drawerTitle }
+          isEdit={ this.state.isEdit }
+          drawerContent={ this.state.drawerContent }
+        /> */}
+
         <PlanItems showDrawer={ this.showDrawer }/>
         <PlanItemsVerify showDrawer={ this.showDrawer }/>
         <RequireItems showDrawer={ this.showDrawer }/>
@@ -144,20 +163,17 @@ class Period extends Component {
               ? (
                   <FormItem>
                     { getFieldDecorator('content', {})(
-                      <TextArea
-                        autosize
-                        // value={ XML[this.state.drawerTitle] }
-                        // value={ this.state.drawerContent }
-                      />
+                      <TextArea autosize />
                     ) }
                   </FormItem>
               )
               : (
                 <FormItem>
-                  <pre><code className="xml">
-                    { this.state.drawerContent }
-                    {/* { XML[this.state.drawerTitle] } */}
-                  </code></pre>
+                  <pre>
+                    <code className="xml">
+                      { this.state.drawerContent }
+                    </code>
+                  </pre>
                 </FormItem>
               )
             }
